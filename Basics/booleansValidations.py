@@ -15,6 +15,13 @@ status = "atrasado"
 if status == "atrasado" or status == "perdido":
     print("É necessário verificar o livro")
 
+nome = ""
+print(not nome)
+print(bool("False"))
+livro_atual = None
+if livro_atual is None:
+    print("Nenhum livro foi informado")
+
 nome = input("Nome do leitor: ")
 idade = int(input("Idade: "))
 paginas_lidas = int(input("Páginas lidas: "))
