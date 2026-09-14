@@ -84,3 +84,64 @@ adicionar_livro("Hopes and Dreams", meus_livros)
 adicionar_livro("Vlad Tapes", meus_livros)
 
 print(meus_livros)
+
+def adicionar_livro(
+        titulo,
+        paginas,
+        genero=None,
+        catalogo=None
+):
+    if not titulo.strip():
+        return None
+    
+    if catalogo is None:
+        catalogo = []
+
+    if genero is None:
+        genero = []
+
+    if paginas <= 0:
+        return None
+
+    livro = {
+        "titulo": titulo.strip(),
+        "paginas": paginas,
+        "genero": genero
+    }
+
+    catalogo.append(livro)
+    return catalogo
+
+catalogo = []
+
+adicionar_livro(
+    titulo="1984",
+    paginas=328,
+    genero=["Distopia"],
+    catalogo=catalogo
+)
+
+adicionar_livro(
+    titulo="Lunis",
+    paginas=120,
+    catalogo=catalogo
+)
+
+print(catalogo)
+
+def configurar_livro(dados={}):
+    dados["status"] = "novo"
+    return dados
+
+def configurar_livros(dados=None):
+    if dados is None:
+        dados = {}
+
+    dados["status"] = "novo"
+    return dados
+
+
+adicionar_livro("1984", 0)
+adicionar_livro("", 300)
+adicionar_livro("1984", 0)
+adicionar_livro("Lunis", -10)
