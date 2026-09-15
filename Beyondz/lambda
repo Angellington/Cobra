@@ -1,0 +1,44 @@
+#  Criar funções anônimas (funções sem nome) de maneira rápida e compacta
+
+import math
+
+
+def quadrado(x):
+    return x ** 2 
+
+print(quadrado(5)) 
+
+circunferencia = lambda x: 2 * math.pi * x
+
+print(circunferencia(4))
+
+
+soma = lambda a, b: a + b
+
+print(soma(9, 2))
+
+pessoas = [
+    ("Ana", 25),
+    ("Carlos", 20),
+    ("Bruna", 30)
+]
+
+pessoas.sort(key=lambda pessoa: pessoa[1])
+
+print(pessoas)
+
+numeros = [1, 2, 3, 4]
+dobro = list(map(lambda x: x* 2, numeros))
+
+print(f"{dobro}")
+
+numeros = [1, 2, 3, 4, 5, 6]
+pares = list(filter(lambda x: x % 2 == 0, numeros))
+print(f"pares - {pares}")
+
+
+nomes = ["Wellington", "Isabela", "Luciara", "Letícia", "Alice", "Tiago", "João"]
+# Quando usar? - Quando a função é simples e usada apenas uma vez
+ajuste = nomes.sort(key=lambda nome: len(nome))
+
+# lambda para funções anônimas
