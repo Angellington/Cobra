@@ -151,3 +151,28 @@ resultado = buscar_livro(catalogo, "lun")
 print(resultado)
 
 
+catalogo = []
+
+def cadastrar():
+    titulo = input("Título: ")
+    catalogo.append(titulo)
+
+def cadastrar(catalogo, titulo):
+    catalogo.append(titulo)
+    return catalogo
+
+
+
+catalogo = []
+
+def adicionar(catalogo, titulo):
+    catalogo.append(titulo)
+    return catalogo
+
+def contar_livros(catalogo):
+    """
+    Ela deve retornar a quantidade de livros
+    """
+    return len(catalogo)
+
+

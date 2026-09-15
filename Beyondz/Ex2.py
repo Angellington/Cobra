@@ -3,8 +3,6 @@ def criar_resumo(titulo, paginas, autor="Desconhecido"):
         return None
     if paginas <= 0:
         return None
-    if not paginas:
-        return None
 
     resumo = {
         "titulo": titulo.strip(),
@@ -16,6 +14,8 @@ def criar_resumo(titulo, paginas, autor="Desconhecido"):
 
 
 print(criar_resumo(paginas=328, titulo="1984", autor="George Owel"))
+
+
 
 
 def calcular_desconto(preco, percentual=10):
