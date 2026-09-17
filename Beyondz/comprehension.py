@@ -105,3 +105,5 @@ todos_validos = all(
             for livro in catalogo
     )
 
+
+
