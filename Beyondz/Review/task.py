@@ -17,27 +17,30 @@ from typing import Type
 
 from catalogo_operacoes import buscar_por_id, calcular_quantidade_paginas_totais, criar_livro, filtrar_por_status, calcalar_media
 
+def main():
+    catalogo = []
 
-catalogo = []
+    novo_livro = criar_livro(1, "Flor do Luar", 32 )
+    novo_livro_2 = criar_livro(2, "Lunis", 123 )
+    novo_livro_3 = criar_livro(3, "The Last Melancholy", 2300 )
+    novo_livro_4 = criar_livro(4, "Um Livro para a Garota B", 232 )
+    novo_livro_5 = criar_livro(5, "Flor do Luar 2", 64 )
 
-novo_livro = criar_livro(1, "Flor do Luar", 32 )
-novo_livro_2 = criar_livro(2, "Lunis", 123 )
-novo_livro_3 = criar_livro(3, "The Last Melancholy", 2300 )
-novo_livro_4 = criar_livro(4, "Um Livro para a Garota B", 232 )
-novo_livro_5 = criar_livro(5, "Flor do Luar 2", 64 )
+    print("Novo livro: ", novo_livro)
+    catalogo.append(novo_livro)
+    catalogo.append(novo_livro_2)
+    catalogo.append(novo_livro_3)
+    catalogo.append(novo_livro_4)
+    catalogo.append(novo_livro_5)
 
-print("Novo livro: ", novo_livro)
-catalogo.append(novo_livro)
-catalogo.append(novo_livro_2)
-catalogo.append(novo_livro_3)
-catalogo.append(novo_livro_4)
-catalogo.append(novo_livro_5)
-
-print("Catalogo", catalogo)
+    print("Catalogo", catalogo)
 
 
-print(calcular_quantidade_paginas_totais(catalogo))  # 480
-print(calcalar_media(catalogo))                     # 160.0
-print(buscar_por_id([], 1))                         # None
-print(filtrar_por_status([], "Lendo"))              # []
-print(filtrar_por_status(catalogo, " concluído "))  # livro Lunis
+    print(calcular_quantidade_paginas_totais(catalogo))  # 480
+    print(calcalar_media(catalogo))                     # 160.0
+    print(buscar_por_id([], 1))                         # None
+    print(filtrar_por_status([], "Lendo"))              # []
+    print(filtrar_por_status(catalogo, " concluído "))  # livro Lunis
+
+if __name__ == "__main__":
+    main()

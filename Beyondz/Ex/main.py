@@ -65,6 +65,8 @@ catalogo = [
     }
 ]
 
+
+
 livro_existente = buscar_por_id(catalogo, 10)
 print("livro existente", livro_existente)
 

@@ -70,7 +70,7 @@ def buscar_por_id(catalogo, id_livro):
     return None
 
 def adicionar_livro(catalogo, livro):
-    if buscar_por_id(catalogo, livro["id"]) is not None:
+    if buscar_por_id(catalogo, livro["id_livro"]) is not None:
         raise ValueError("Já existe um livro com esse ID.")
 
     catalogo.append(livro)
