@@ -121,131 +121,40 @@ catalogo = [
     },
 ]
 
+titulos = [livro["titulo"] for livro in catalogo]
+print("titulos", titulos)
 
-# LIST COMPREHENSION
 
-def contar_livros(catalogo):
-    return len(catalogo)
-
-paginas = []
-for livro in catalogo:
-    paginas.append(livro["paginas"])
-print(sum(paginas))
-
-paginas = [livro["paginas"] for livro in catalogo]
-# expressao for item in colecao
-
-concluidos = [ 
+# Filtro
+mais_vinte = [
     livro["titulo"]
     for livro in catalogo
-    if livro["paginas"] == livro["lidas"]
+    if livro["paginas"] > 300
 ]
+print("maisvinte", mais_vinte)
 
+# Dict
 
-# DICT COMPREHENSION
+# new_dict = {
+#     livro["titulo"]: livro["paginas"]
+#     for livro in catalogo
+# }
+# print("new dict", new_dict)
 
-print(concluidos)
-
-Touhou = {
-    "Rumia": "Sinal da Escuridão",
-    "Cirno": "Sinal da Geada",
-    "Hong Meiling": "Sinal da Flor",
-    "Patachouli Knowledge": "Sinal da Lua",
-    "Sakuya Izayoi": "Sinal da Ilusão",
-    "Remilia Scarlet": "Sinal Escarlate",
-    "Flandre Scarlet": 0
-}
-
-cat = {
-    "1984": 328,
-    "Lunis": 120,
-    "The Last Melancholy": 420
-}
-
-dobradas = {
-    titulo: paginas * 2
-    for titulo, paginas in cat.items()
-}
-
-print(f"Dobradas {dobradas}")
-
-livros_longos = {
-    titulo: paginas
-    for titulo, paginas in cat.items()
-    if paginas >= 300
-}
-
-print("Quais livros são longos?: ", livros_longos)
-
-# No dict temos que dizer qual valor será usado como critério
-por_paginas = sorted(
+ordenado = sorted(
     catalogo,
     key=lambda livro: livro["paginas"]
 )
-catalogo_ordenado = sorted(catalogo, key=lambda livro: livro["paginas"], reverse=True)
-
-# lamda - função pequena e anônima
-lambda livro: livro["paginas"]
-
-
-
-sorted(catalogo, key=lambda livro: livro["paginas"])
-def obter_paginas(livro):
-    return livro["paginas"]
-
-sorted(catalogo, key=obter_paginas)
-
-# ordenar por título
-por_titulo = sorted(catalogo, key=lambda livro: livro["titulo"].casefold())
-
-existe_livro_longo = any(
-    livro["paginas"] > 500
-    for livro in catalogo
-)
-
-todos_validos = all(
-    livro["paginas"] > 0
-    for livro in catalogo
-)
-
-
-catalogo = [
-    {
-        "titulo": "1984",
-        "paginas": 328,
-        "lidas": 328
-    },
-    {
-        "titulo": "The Last Melancholy",
-        "paginas": 420,
-        "lidas": 210
-    },
-    {
-        "titulo": "Lunis",
-        "paginas": 120,
-        "lidas": 120
-    }
-]
-
-concluidos = [
-    livro
-    for livro in catalogo
-    if livro["lidas"] == livro["paginas"]]
-
-print(concluidos)
-
-por_paginas = sorted(
+print("ordenado", ordenado)
+ordenado = sorted(
     catalogo,
-    key=lambda livro: livro["paginas"]
+    key=lambda livro: livro["paginas"],
+    reverse=True
 )
 
-for livro in por_paginas:
-    print(livro["titulo"], livro["paginas"])
-
-
-por_titulo = sorted(
+ordenado = sorted(
     catalogo,
-    key=lambda livro: livro["titulo"].casefold()
+    key=lambda livro: livro["titulo"]
 )
 
 total_paginas = sum(
@@ -253,12 +162,22 @@ total_paginas = sum(
     for livro in catalogo
 )
 
-possui_livro_longo = any(
-    livro["paginas"] > 400
-    for livro in catalogo
+print("total pagians", total_paginas)
+
+livro_menor_pagina = min(
+    catalogo,
+    key=lambda livro: livro["paginas"]
 )
 
-todos_validos = all(
-    livro["paginas"] > 0
-    for livro in catalogo
+livro_maior_pagina = max(
+    catalogo,
+    key=lambda livro: livro["paginas"]
 )
+
+livros_longos = {
+    livro["titulo"]: livro["paginas"]
+    for livro in catalogo
+    if livro.get("titulo")
+    and isinstance(livro.get("paginas"), int)
+    and livro["paginas"] >= 1000
+}
