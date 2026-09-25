@@ -1,5 +1,5 @@
 from catalogo_operacoes import (
-     buscar_por_id, filtrar_por_status, listar_livros
+     buscar_por_id, filtrar_por_status, listar_livros, arquivo_existe, quantidade_titulos
 )
 
 catalogo = [
@@ -66,12 +66,22 @@ catalogo = [
 ]
 
 
+def main():
+    livro_existente = buscar_por_id(catalogo, 10)
+    print("livro existente", livro_existente)
 
-livro_existente = buscar_por_id(catalogo, 10)
-print("livro existente", livro_existente)
+    todos_livros = listar_livros(catalogo)
+    print("Todos os Livros", todos_livros)
 
-todos_livros = listar_livros(catalogo)
-print("Todos os Livros", todos_livros)
+    status_livro = filtrar_por_status(catalogo=catalogo, status="disponivel")
+    print("Status Livro", status_livro)
 
-status_livro = filtrar_por_status(catalogo=catalogo, status="disponivel")
-print("Status Livro", status_livro)
+    try:
+        adicionar_titulo(" ")
+    except ValueError as erro:
+        print(f"Erro esperado: {erro}")
+
+
+if __name__ == "__name":
+    main()
+
