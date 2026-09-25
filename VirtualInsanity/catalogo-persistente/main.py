@@ -1,5 +1,5 @@
 from pathlib import Path
-from operacoes import adicionar_obra, ler_obras, salvar_obras
+from operacoes import adicionar_obra, excluir_obra, ler_obras, salvar_obras, buscar_obras, contar_obras
 from config import ARQUIVOS_OBRAS
 
 def main():
@@ -11,7 +11,9 @@ def main():
 
     adicionar_obra(obra_nova)
 
-
+    excluir_obra("Projeto B")
+    print(buscar_obras("Flor"))
+    print("Total de Obras: ", contar_obras())
 
 
 if __name__ == "__main__":

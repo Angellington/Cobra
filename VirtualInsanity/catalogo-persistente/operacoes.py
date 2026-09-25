@@ -56,3 +56,35 @@ def adicionar_obra(obra):
         salvar_obras(obras_existentes)
 
     return adicionou_alguma
+
+
+def excluir_obra(obra):
+    obra = obra_validation(obra=obra)
+    obras = ler_obras(ARQUIVOS_OBRAS)
+    obra_sem_excluido = []
+    excluiu_algum = False
+    for o in obras:
+        if o.strip() != obra.strip():
+            obra_sem_excluido.append(o.strip())
+        else:
+            excluiu_algum = True
+    salvar_obras(obra_sem_excluido)
+    return excluiu_algum
+
+def buscar_obras(termo):
+    if not termo or not termo.strip():
+        raise ValueError("Envie um termo correto")
+    
+    obras = ler_obras(ARQUIVOS_OBRAS)
+    obras = obras_validation(obras=obras)
+
+    termo_normalizado = termo.strip().casefold()
+
+    return [
+        obra for obra in obras
+        if termo_normalizado in obra.casefold()
+    ]
+
+def contar_obras():
+    obras = ler_obras(ARQUIVOS_OBRAS)
+    return len(obras)
