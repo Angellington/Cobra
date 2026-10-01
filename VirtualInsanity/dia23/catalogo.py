@@ -1,4 +1,5 @@
 import json
+from multiprocessing.sharedctypes import Value
 from pathlib import Path
 
 
@@ -84,6 +85,36 @@ def quantidade_livros(pasta_dados=ARQUIVO_NOVO_CATALOGO):
         raise ValueError("O catalogo precisa ser uma lista")
     return len(catalogo)
 
+def catalogo_validation(pasta_dados):
+    if not pasta_dados.exists():
+        return False
+
+    try:
+        with pasta_dados.open("r", encoding="utf-8") as arquivo:
+            catalogo = json.load(arquivo)
+
+    except json.JSONDecodeError as Erro:
+        raise ValueError("O arquivo possui JSON inválido") from Erro
+
+    if not isinstance(catalogo, list):
+        raise ValueError("O catalogo precisa ser uma lista")
+    return True
+
+def ler_json(pasta_dados):
+    if not pasta_dados.exists():
+        return []
+
+    try:
+        with pasta_dados.open("r", encoding="utf-8") as arquivo:
+            catalogo = json.load(arquivo)
+
+    except json.JSONDecodeError as Erro:
+        raise ValueError("O arquivo possui JSON inválido") from Erro
+
+    if not isinstance(catalogo, list):
+        raise ValueError("O catalogo precisa ser uma lista")
+    return catalogo
+
 def maior_avaliacao(pasta_dados=ARQUIVO_NOVO_CATALOGO):
     if not pasta_dados.exists():
         return None
@@ -102,3 +133,10 @@ def maior_avaliacao(pasta_dados=ARQUIVO_NOVO_CATALOGO):
         (f"{livro["titulo"]} - {livro["avaliacao"]} estrelas!" for livro in catalogo if livro["avaliacao"] is not None),
         default=None
     )
+
+def adicionar_livro(livro, pasta_dados=ARQUIVO_NOVO_CATALOGO):
+    catalogo_validation(pasta_dados)
+    catalogo = ler_json(pasta_dados)
+    catalogo.append(livro)
+    salvar_catalogo(catalogo, pasta_dados)
+    
