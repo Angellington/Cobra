@@ -20,3 +20,4 @@ def ler_titulos():
             for linha in arquivo
             if linha.strip()
         ]
+

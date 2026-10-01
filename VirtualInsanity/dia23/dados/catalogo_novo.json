@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "titulo": "Avatar: A Ascensão de Kyoshi",
+        "autor": "F. C. Yee",
+        "genero": [
+            "Fantasia",
+            "Aventura",
+            "Drama"
+        ],
+        "paginas": 448,
+        "avaliacao": null
+    },
+    {
+        "id": 2,
+        "titulo": "Algoritmos: Estruturas de Dados e Análise",
+        "autor": "Mark Allen Weiss",
+        "paginas": 832,
+        "avaliacao": 4.0
+    }
+]
