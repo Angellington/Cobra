@@ -1,4 +1,4 @@
-from catalogo import salvar_catalogo, ler_catalogo, todos_os_livros, maior_avaliacao
+from catalogo import busca_por_id, salvar_catalogo, ler_catalogo, todos_os_livros, maior_avaliacao, listar_titulos, calcular_media_avaliacao, buscar_por_titulo
 from config import ARQUIVO_NOVO_CATALOGO, PASTA_DADOS, ARQUIVO_CATALOGO
 
 def main():
@@ -70,6 +70,17 @@ def main():
     print(todos_os_livros(pasta_dados=ARQUIVO_NOVO_CATALOGO))
 
     print(maior_avaliacao(pasta_dados=ARQUIVO_NOVO_CATALOGO))
+
+    resultado = busca_por_id(catalogo=catalogo_algo, id_livro=99)
+
+    if resultado is None:
+        print("Livro não encontrado")
+    else:
+        print(resultado["titulo"])
+
+    print("Livros: ",listar_titulos(catalogo=catalogo_algo))
+    print(f"Média {calcular_media_avaliacao(catalogo=catalogo_algo)}")
+    print(f"Livro do termo: {buscar_por_titulo(catalogo=catalogo_algo, termo="Avatar")}")
 
 if __name__ == "__main__":
     main()

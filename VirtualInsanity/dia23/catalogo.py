@@ -139,4 +139,67 @@ def adicionar_livro(livro, pasta_dados=ARQUIVO_NOVO_CATALOGO):
     catalogo = ler_json(pasta_dados)
     catalogo.append(livro)
     salvar_catalogo(catalogo, pasta_dados)
+
+def calcular_total_paginas(catalogo: list[dict]) -> int:
+    return sum(livro["paginas"] for livro in catalogo);
+
+def busca_por_id(
+        catalogo: list[dict],
+        id_livro: int
+) -> dict | None:
+    for livro in catalogo:
+        if livro["id"] == id_livro:
+            return livro
+
+
+def catalogo_validation_pure(catalogo: list[dict]) -> list[dict]:
+    if not catalogo:
+        raise ValueError("Não é um catalogo válido")
+    if not isinstance(catalogo, list):
+        raise ValueError("O catalogo precisa ser uma lista")
+    if len(catalogo) <= 0:
+        raise ValueError("O catalogo não possui valor?")
+    return catalogo
+
+def listar_titulos(catalogo: list[dict]) -> list[str]:
+    catalogo_validation_pure(catalogo)
+
     
+
+    return [
+        livro["titulo"] for livro in catalogo
+    ]
+
+
+
+def calcular_media_avaliacao(catalogo: list[dict]) -> float:
+    catalogo_validation_pure(catalogo=catalogo)
+
+    avaliacoes = [
+        livro["avaliacao"]
+        for livro in catalogo
+        if livro["avaliacao"] is not None
+    ]
+
+    if not catalogo:
+        return 0.0
+
+    return sum(avaliacoes) / len(avaliacoes)    
+
+
+def buscar_por_titulo(
+        catalogo: list[dict],
+        termo: str
+) -> list[dict]:
+    catalogo_validation_pure(catalogo=catalogo)
+    termo = termo.strip()
+    if not catalogo:
+        raise ValueError("Coloque um catálogo de verdade")
+    if not termo:
+        raise ValueError("Insira um termo correto")
+    termo_normalizado = termo.casefold()
+
+    return [
+        livro for livro in catalogo
+        if termo_normalizado in livro["titulo"].casefold()
+    ]
