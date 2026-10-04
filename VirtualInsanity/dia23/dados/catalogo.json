@@ -1,37 +1,16 @@
 [
     {
         "id": 1,
-        "titulo": "Avatar: A Ascensão de Kyoshi",
-        "autor": "F. C. Yee",
-        "paginas": 448,
-        "avaliacao": null
+        "titulo": "The Last Melancholy",
+        "autor": "Wellington Ferreira",
+        "paginas": 302,
+        "avaliacao": 4.5
     },
     {
         "id": 2,
-        "titulo": "Avatar: A Sombra de Kyoshi",
-        "autor": "F. C. Yee",
-        "paginas": 352,
-        "avaliacao": null
-    },
-    {
-        "id": 3,
-        "titulo": "Avatar: A Alvorada de Yangchen",
-        "autor": "F. C. Yee",
-        "paginas": 336,
-        "avaliacao": null
-    },
-    {
-        "id": 4,
-        "titulo": "Avatar: O Legado de Yangchen",
-        "autor": "F. C. Yee",
-        "paginas": 368,
-        "avaliacao": null
-    },
-    {
-        "id": 5,
-        "titulo": "Avatar: O Despertar de Roku",
-        "autor": "Randy Ribay",
-        "paginas": 368,
-        "avaliacao": null
+        "titulo": "Lunis e as Cinco Estações",
+        "autor": "Wellington Ferreira",
+        "paginas": 487,
+        "avaliacao": 5.0
     }
 ]
