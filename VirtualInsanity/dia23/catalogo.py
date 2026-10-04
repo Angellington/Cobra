@@ -163,9 +163,6 @@ def catalogo_validation_pure(catalogo: list[dict]) -> list[dict]:
 
 def listar_titulos(catalogo: list[dict]) -> list[str]:
     catalogo_validation_pure(catalogo)
-
-    
-
     return [
         livro["titulo"] for livro in catalogo
     ]
