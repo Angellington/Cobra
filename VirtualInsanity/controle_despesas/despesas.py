@@ -1,6 +1,5 @@
-from codecs import ascii_decode
-from genericpath import exists
 import json
+import os
 from pathlib import Path
 
 # def validar_despesa(despesa: list[dict]):
@@ -33,3 +32,37 @@ def adicionar_no_arquivo(despesa: dict, path: Path) -> None:
 
     with path.open("w", encoding="utf-8") as arquivo:
         json.dump(despesas, arquivo, ensure_ascii=False, indent=4)
+
+def listar_despesas(path: str) -> None:
+    if not path:
+        ValueError("Insira um path válido")
+    despesa = abrir_arquivo(path=path)
+    print(despesa)
+    while True:
+        continuar = input("Digite para continuar: ")
+        if continuar:
+            break
+
+def deletar_despesa(path: str) -> None:
+    if not path:
+        ValueError("Insira um path válido")
+
+    try:
+        from .config import validar_id
+    except ImportError:
+        from config import validar_id
+
+    os.system("clear")
+    print(abrir_arquivo(path=path))
+    while True:
+        try:
+            id = int(input("Qual o id que deseja deletar: "))
+        except ValueError:
+            print("Insira um valor válido")
+            continue
+        if not validar_id(path, id):
+            print("O valor não existe")
+            continue
+        break
+
+        

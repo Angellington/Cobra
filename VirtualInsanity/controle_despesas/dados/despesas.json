@@ -19,5 +19,19 @@
         "valor": 51.23,
         "categoria": "CAIADO",
         "data": "04/10/2026"
+    },
+    {
+        "id": 4,
+        "descricao": "Macaco",
+        "valor": 20.0,
+        "categoria": "Frieren",
+        "data": "04/10/2026"
+    },
+    {
+        "id": 5,
+        "descricao": "Macaco",
+        "valor": 30.0,
+        "categoria": "Frieren",
+        "data": "04/10/2026"
     }
 ]
