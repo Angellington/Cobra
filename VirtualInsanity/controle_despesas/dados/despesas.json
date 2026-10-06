@@ -1,12 +1,5 @@
 [
     {
-        "id": 1,
-        "descricao": "string",
-        "valor": 20,
-        "categoria": "string",
-        "data": "data"
-    },
-    {
         "id": 2,
         "descricao": "43",
         "valor": 34.0,
@@ -18,13 +11,6 @@
         "descricao": "String Thoecracy",
         "valor": 51.23,
         "categoria": "CAIADO",
-        "data": "04/10/2026"
-    },
-    {
-        "id": 4,
-        "descricao": "Macaco",
-        "valor": 20.0,
-        "categoria": "Frieren",
         "data": "04/10/2026"
     },
     {

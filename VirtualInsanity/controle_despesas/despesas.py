@@ -33,7 +33,7 @@ def adicionar_no_arquivo(despesa: dict, path: Path) -> None:
     with path.open("w", encoding="utf-8") as arquivo:
         json.dump(despesas, arquivo, ensure_ascii=False, indent=4)
 
-def listar_despesas(path: str) -> None:
+def listar_despesas(path: Path) -> None:
     if not path:
         ValueError("Insira um path válido")
     despesa = abrir_arquivo(path=path)
@@ -43,17 +43,17 @@ def listar_despesas(path: str) -> None:
         if continuar:
             break
 
-def deletar_despesa(path: str) -> None:
+def deletar_despesa(path: Path) -> None:
     if not path:
         ValueError("Insira um path válido")
 
+    arquivo = abrir_arquivo(path=path)
+    print("Arquivo: ", arquivo)
     try:
         from .config import validar_id
     except ImportError:
         from config import validar_id
 
-    os.system("clear")
-    print(abrir_arquivo(path=path))
     while True:
         try:
             id = int(input("Qual o id que deseja deletar: "))
@@ -65,4 +65,7 @@ def deletar_despesa(path: str) -> None:
             continue
         break
 
-        
+    novo = [valor for valor in arquivo if valor["id"] != id]
+
+    with path.open("w", encoding="utf-8") as arquivo_json:
+        json.dump(novo, arquivo_json, ensure_ascii=False, indent=4)
