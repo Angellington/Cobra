@@ -6,6 +6,9 @@
 
 
 
+from dataclasses import dataclass
+
+
 class SteamGame:
     def __init__(self, nome: str) -> None:
         if not nome.strip():
@@ -59,3 +62,4 @@ try:
     novo_jogo = SteamGame(" ")
 except ValueError as erro:
     print("Erro: ", erro)
+
